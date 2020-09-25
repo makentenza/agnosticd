@@ -33,7 +33,8 @@
       ec2_snapshot_info:
         filters:
           description: "{{ sap_software_snapshot_name }}"
-          owner-id: "{{ sap_software_snapshot_owner_id }}" 
+          # Commented out by prutledg, snapshot is copied locally to each account we use and account owner is hard to predict 
+          #owner-id: "{{ sap_software_snapshot_owner_id }}" 
       register: sap_snapshot
 
     - name: Stop the deployment if the snapshot is not available
