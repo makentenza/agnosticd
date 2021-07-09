@@ -183,7 +183,7 @@
 
 - name: Create Serverless namespace
   k8s:
-    state: present
+   state: present
     resource_definition: "{{ lookup( 'template', './files/k8s/ns_serverless.j2' ) | from_yaml }}"
 
 - name: Create SAP Serverless namespace
@@ -220,50 +220,50 @@
   retries: 30
   delay: 10
 
-- name: Create Knative Eventing
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/serverless_knativeeventing.j2' ) | from_yaml }}"
+#- name: Create Knative Eventing
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/serverless_knativeeventing.j2' ) | from_yaml }}"
 
-- name: Create Knative Serving
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/serverless_knativeserving.j2' ) | from_yaml }}"
+#- name: Create Knative Serving
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/serverless_knativeserving.j2' ) | from_yaml }}"
 
-- name: Create Channel OrderCheck
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/channel_ordercheck.j2' ) | from_yaml }}"
-  register: k8sres
-  until: k8sres.failed == False
-  retries: 30
-  delay: 10
+#- name: Create Channel OrderCheck
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/channel_ordercheck.j2' ) | from_yaml }}"
+#  register: k8sres
+#  until: k8sres.failed == False
+#  retries: 30
+#  delay: 10
 
-- name: Create Channel ReturnTxt
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/channel_returntxt.j2' ) | from_yaml }}"
-  register: k8sres
-  until: k8sres.failed == False
-  retries: 30
-  delay: 10
+#- name: Create Channel ReturnTxt
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/channel_returntxt.j2' ) | from_yaml }}"
+#  register: k8sres
+#  until: k8sres.failed == False
+#  retries: 30
+#  delay: 10
 
-- name: Create Integration ODATA
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/integration_sap_odata.j2' ) | from_yaml }}"
+#- name: Create Integration ODATA
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/integration_sap_odata.j2' ) | from_yaml }}"
 
-- name: Create Integration Sales Slack
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/integration_sap_sales_slack.j2' ) | from_yaml }}"
+#- name: Create Integration Sales Slack
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/integration_sap_sales_slack.j2' ) | from_yaml }}"
 
-- name: Create Slack Source
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/kamelet_slack_source.j2' ) | from_yaml }}"
+#- name: Create Slack Source
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/kamelet_slack_source.j2' ) | from_yaml }}"
 
-- name: Create Slack Binding
-  k8s:
-    state: present
-    resource_definition: "{{ lookup( 'template', './files/k8s/kamelet_bind_slack.j2' ) | from_yaml }}"
+#- name: Create Slack Binding
+#  k8s:
+#    state: present
+#    resource_definition: "{{ lookup( 'template', './files/k8s/kamelet_bind_slack.j2' ) | from_yaml }}"
